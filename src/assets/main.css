@@ -1,10 +1,20 @@
 @import "./base.css";
 
-a,
-.green {
-  text-decoration: none;
-  color: rgb(128, 128, 128);
-  transition: 0.4s;
+::-webkit-scrollbar {
+  background-color: rgba(122, 122, 122, 0.4);
+  border-radius: 10px;
+  width: 3px;
+  height:3px;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background: rgba(27,27,27,.4);
+}
+
+::-webkit-scrollbar-track {
+  border-radius: 10px;
+  background: #fff;
 }
 
 @media (hover: hover) {

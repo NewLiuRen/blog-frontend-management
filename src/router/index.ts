@@ -11,8 +11,8 @@ const routes = [
     component: () => import("../views/article/PageAtricle.vue"),
     children: [
       {
-        path: "/article",
-        name: "article",
+        path: "/articleDetail",
+        name: "articleDetail",
         meta: {
           title: "文章详情",
         },
@@ -28,6 +28,16 @@ const routes = [
       icon: "IconComment",
     },
     component: () => import("../views/comment/PageComment.vue"),
+    children: [
+      {
+        path: "/commentDetail",
+        name: "commentDetail",
+        meta: {
+          title: "回复详情",
+        },
+        component: () => import("../views/comment/PageCommentDetail.vue"),
+      },
+    ],
   },
   {
     path: "/message",
@@ -38,7 +48,6 @@ const routes = [
     },
     component: () => import("../views/message/PageMessage.vue"),
   },
-
   {
     path: "/user",
     name: "user",
@@ -77,9 +86,11 @@ const routes = [
   },
 ];
 
+const appRoutes = [{ path: "/", redirect: { name: "article" } }, ...routes];
+
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
-  routes,
+  routes: appRoutes,
 });
 
 export default router;

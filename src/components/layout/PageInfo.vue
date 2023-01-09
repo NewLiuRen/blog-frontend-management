@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import { useRoute } from "vue-router";
-import { Search } from "@element-plus/icons-vue";
+import { Search, Back } from "@element-plus/icons-vue";
 
 const route = useRoute();
 </script>
@@ -18,6 +18,7 @@ const route = useRoute();
       </el-breadcrumb>
     </el-col>
     <el-col :span="4" style="text-align: right">
+      <el-button :icon="Back" size="small" plain>回退</el-button>
       <el-button :icon="Search" size="small" plain>刷新</el-button>
     </el-col>
   </el-row>

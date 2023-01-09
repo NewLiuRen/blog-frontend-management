@@ -1,0 +1,13 @@
+.multiple-text-overflow(@line: 2) {
+  overflow : hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: @line;
+  -webkit-box-orient: vertical;
+}
+
+.text-overflow {
+  overflow:hidden;
+  white-space:nowrap;
+  text-overflow: ellipsis;
+}
