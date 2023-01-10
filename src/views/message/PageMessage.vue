@@ -81,7 +81,7 @@ const onReplyMessage = (message, index) => {
 
 <style lang="less" scoped>
 .card-wrap {
-  height: calc(100% - 110px);
+  height: calc(100% - 115px);
   overflow-y: auto;
   overflow-x: hidden;
 }

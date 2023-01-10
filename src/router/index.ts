@@ -28,16 +28,15 @@ const routes = [
       icon: "IconComment",
     },
     component: () => import("../views/comment/PageComment.vue"),
-    children: [
-      {
-        path: "/commentDetail",
-        name: "commentDetail",
-        meta: {
-          title: "回复详情",
-        },
-        component: () => import("../views/comment/PageCommentDetail.vue"),
-      },
-    ],
+  },
+  {
+    path: "/commentDetail/:id",
+    name: "commentDetail",
+    meta: {
+      title: "回复详情",
+      hideMenu: true,
+    },
+    component: () => import("../views/comment/PageCommentDetail.vue"),
   },
   {
     path: "/message",

@@ -1,7 +1,9 @@
 <script lang="ts" setup>
 import { ref, onMounted } from "vue";
+import { useRouter } from "vue-router";
 import Comment from "@/entity/Comment";
 
+const router = useRouter();
 const total = ref(0);
 const guestId = ref("");
 const data = ref<Comment[]>([
@@ -45,6 +47,7 @@ const reloadData = () => {
 
 const detailComment = (comment: Comment) => {
   guestId.value = comment.id;
+  router.push({ name: "commentDetail", params: { id: comment.id } });
 };
 
 onMounted(() => {

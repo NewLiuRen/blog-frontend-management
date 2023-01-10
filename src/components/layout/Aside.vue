@@ -1,10 +1,13 @@
 <script lang="ts" setup>
-import { watchEffect } from "vue";
+import { computed } from "vue";
 import { useRoute } from "vue-router";
 import { routes } from "@/router";
 import * as icons from "../icons";
 
 const route = useRoute();
+const calcRoutes = computed(() => {
+  return routes.flat(Infinity).filter((route) => !route.meta.hideMenu);
+});
 </script>
 
 <template>
@@ -17,7 +20,7 @@ const route = useRoute();
       height="60"
     />
     <el-menu-item
-      v-for="(route, index) in routes"
+      v-for="(route, index) in calcRoutes"
       :index="route.path"
       :key="'route_' + index"
     >

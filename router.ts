@@ -9,5 +9,6 @@ declare module "vue-router" {
     // 标题
     title?: string;
     icon?: string;
+    hideMenu?: boolean;
   }
 }
