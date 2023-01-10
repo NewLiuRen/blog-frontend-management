@@ -24,6 +24,14 @@ const data: Comment = {
   gmtCreate: "2021-01-01",
 };
 
+const topOnChange = (value) => {
+  comment.value.top = value;
+};
+
+const sortOnChange = (value) => {
+  comment.value.sortNum = value;
+};
+
 const contentOnChange = (value) => {
   comment.value.content = value;
 };
@@ -45,8 +53,45 @@ watchEffect(() => {
       标题：<b>{{ comment.title }}</b>
     </div>
     <div class="content-wrap">描述：{{ comment.description }}......</div>
+    <el-row>
+      <el-col :span="2">操作：</el-col>
+      <el-col :span="5">
+        <el-button
+          plain
+          type="success"
+          size="small"
+          @click="detailComment(scope.row)"
+          >查看文章</el-button
+        >
+      </el-col>
+      <el-col :span="4"
+        ><el-switch
+          size="small"
+          active-text="置顶"
+          inactive-text="未置顶"
+          :model-value="comment.top"
+          @change="topOnChange"
+        />
+      </el-col>
+      <el-col :span="5"
+        >置顶序号：<el-input-number
+          size="small"
+          :model-value="comment.sortNum"
+          @input="sortOnChange"
+      /></el-col>
+      <el-col :span="3" :offset="5">
+        <el-button
+          plain
+          type="primary"
+          size="small"
+          @click="detailComment(scope.row)"
+          >发表评论</el-button
+        >
+      </el-col>
+    </el-row>
     <el-input
       type="textarea"
+      class="reply-wrap"
       :readonly="isReadonly"
       :maxlength="200"
       :show-word-limit="true"
@@ -74,5 +119,8 @@ watchEffect(() => {
   margin: 10px 0;
   color: #666;
   .multiple-text-overflow();
+}
+.reply-wrap {
+  margin-top: 10px;
 }
 </style>
